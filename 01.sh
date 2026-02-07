@@ -4,6 +4,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=4
 #SBATCH --partition=amilan
+#SBATCH --qos=normal
 #SBATCH --time=24:00:00
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=e.s.esdaile@colostate.edu
