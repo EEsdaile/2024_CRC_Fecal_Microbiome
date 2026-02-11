@@ -1,4 +1,4 @@
-sampleid	Extraction_Batch	Horse_No.	day	Date_of_sample	Preg_Pos?	Date_of_Ovulation	Day_post_Ov	Date_bred	Day_post_insemination	Notes
+sampleid	Extraction_Batch	Horse_No.	day	Date_of_sample	Preg_Pos	Date_of_Ovulation	Day_post_Ov	Date_bred	Day_post_insemination	Notes
 10-1	4	10	1	7/22/2024	N	7/23/2024	-1	7/22/2024	0	
 10-2	1	10	2	7/23/2024	N	7/23/2024	0	7/22/2024	1	
 10-14	3	10	14	8/2/2024	N	7/23/2024	10	7/22/2024	11	
