@@ -4,16 +4,26 @@ rule all:
 		"03_table_CRC_fecal_samples_filter_taxa_samples_1_reads_30_greengenes.qzv",
 		"03_table_CRC_fecal_samples_filter_taxa_samples_2_reads_20_greengenes.qzv",
 		"03_table_CRC_fecal_samples_filter_taxa_samples_3_reads_10_greengenes.qzv",
+		"03_table_CRC_fecal_samples_filter_taxa_samples_3_reads_50_greengenes.qzv",
+		"03_table_CRC_fecal_samples_filter_taxa_samples_3_reads_100_greengenes.qzv",
 		"03_CRC_fecal_samples_taxonomy_greengenes.qzv",
 		"03_CRC_fecal_samples_taxonomy_barplot_samples_1_reads_30_greengenes.qzv",
                 "03_CRC_fecal_samples_taxonomy_barplot_samples_2_reads_20_greengenes.qzv",
                 "03_CRC_fecal_samples_taxonomy_barplot_samples_3_reads_10_greengenes.qzv",
+		"03_CRC_fecal_samples_taxonomy_barplot_samples_3_reads_50_greengenes.qzv",
+		"03_CRC_fecal_samples_taxonomy_barplot_samples_3_reads_100_greengenes.qzv",
 		"03_CRC_fecal_sampless_alpha_rarefaction_curves_samples_1_reads_30_greengenes.qzv",
                 "03_CRC_fecal_sampless_alpha_rarefaction_curves_samples_2_reads_20_greengenes.qzv",
                 "03_CRC_fecal_sampless_alpha_rarefaction_curves_samples_3_reads_10_greengenes.qzv",
+		"03_CRC_fecal_sampless_alpha_rarefaction_curves_samples_3_reads_50_greengenes.qzv",
+		"03_CRC_fecal_sampless_alpha_rarefaction_curves_samples_3_reads_100_greengenes.qzv",
 		directory("03_CRC_fecal_samples_beta_div_samples_1_reads_30_greengenes"),
                 directory("03_CRC_fecal_samples_beta_div_samples_2_reads_20_greengenes"),
-                directory("03_CRC_fecal_samples_beta_div_samples_3_reads_10_greengenes")
+                directory("03_CRC_fecal_samples_beta_div_samples_3_reads_10_greengenes"),
+		directory("03_CRC_fecal_samples_beta_div_samples_3_reads_50_greengenes"),
+		directory("03_CRC_fecal_samples_beta_div_samples_3_reads_100_greengenes")
+
+
 
 
 rule classify_features:
@@ -62,6 +72,33 @@ rule filter_samples_read_number:
 		 --i-table {input} \
 		 --p-min-frequency 1000 \
 		 --o-filtered-table {output}"
+
+
+rule filter_sequences_read_number_3_100:
+	input:
+		"03_table_CRC_fecal_samples_filter_taxa_samples_greengenes.qza"
+	output:
+		"03_table_CRC_fecal_samples_filter_taxa_samples_3_reads_100_greengenes.qza"
+	shell:
+		"qiime feature-table filter-features \
+		--i-table {input} \
+		--p-min-frequency 100 \
+		--p-min-samples 3 \
+		--o-filtered-table {output}"
+
+
+rule filter_sequences_read_number_3_50:
+	input:
+		"03_table_CRC_fecal_samples_filter_taxa_samples_greengenes.qza"
+	output:
+		"03_table_CRC_fecal_samples_filter_taxa_samples_3_reads_50_greengenes.qza"
+	shell:
+		"qiime feature-table filter-features \
+		--i-table {input} \
+		--p-min-frequency 50 \
+		--p-min-samples 3 \
+		--o-filtered-table {output}"
+
 
 rule filter_sequences_read_number_3_10:
 	input:
